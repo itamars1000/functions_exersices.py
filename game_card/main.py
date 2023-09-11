@@ -25,29 +25,15 @@ for i in range(10):
     print(card2)
 
     # Checking who won
-
-    if card1 == card2:
-        if card1.suit > card2.suit:
-            player1.add_card(card1)
-            player1.add_card(card2)
-            print(player1.__str__())
-        elif card2.suit > card1.suit:
-            player2.add_card(card1)
-            player2.add_card(card2)
-            print(player2.__str__())
-        else:
-            player1.add_card(card1)
-            player2.add_card(card2)
-            print("Even")
+    if card1 > card2:
+        player1.add_card(card1)
+        player1.add_card(card2)
+        print(player1.__str__())
     else:
-        if card1 > card2:
-            player1.add_card(card1)
-            player1.add_card(card2)
-            print(player1.__str__())
-        else:
-            player2.add_card(card1)
-            player2.add_card(card2)
-            print(player2.__str__())
+        player2.add_card(card1)
+        player2.add_card(card2)
+        print(player2.__str__())
+
     input("")
 
 # The results

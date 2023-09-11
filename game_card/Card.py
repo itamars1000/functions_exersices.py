@@ -10,16 +10,30 @@ class Card:
         self.suit = suit
 
     def __repr__(self):
-        list_values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+        list_values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
         list_suits = ['Diamond', 'Spade', 'Heart', 'Club']
-        return (f'{list_values[self.value - 2]} of {list_suits[self.suit - 1]}')
+        return (f'{list_values[self.value - 1]} of {list_suits[self.suit - 1]}')
 
     def __gt__(self, other):
         """Checks if the card higher than other card"""
-        if self.value > other.value:
-            return True
+        if self == other:
+            if self.suit > other.suit:
+                return True
+            elif self.suit < other.suit:
+                return False
+            else:
+                return None
         else:
-            return False
+            if self.value == 1:
+                return True
+            else:
+                if other.value == 1:
+                    return False
+                else:
+                    if self.value > other.value:
+                        return True
+                    else:
+                        return False
 
     def __eq__(self, other):
         """Compares between 2 cards"""

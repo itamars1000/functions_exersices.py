@@ -10,7 +10,7 @@ from random import shuffle, randint, choice
 class DeckOfCards:
     def __init__(self):
         """Make new deck of card with 52 cards"""
-        self.cards = [Card(randint(2, 14), randint(1, 4)) for i in range(52)]
+        self.cards = [Card(randint(1, 13), randint(1, 4)) for i in range(52)]
 
     def __repr__(self):
         return f'Deck of cards: {self.cards}'

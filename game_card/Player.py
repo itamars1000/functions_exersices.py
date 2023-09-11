@@ -20,6 +20,7 @@ class Player:
 
     def __str__(self):
         return f'{self.name}'
+
     def __repr__(self):
         return (f'Name: {self.name}\n'
                 f'Cards: {self.list_cards}')
