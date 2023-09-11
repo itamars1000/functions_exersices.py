@@ -18,6 +18,12 @@ class Player:
             self.numb_cards = 26
         self.list_cards = []
 
+    def __str__(self):
+        return f'{self.name}'
+    def __repr__(self):
+        return (f'Name: {self.name}\n'
+                f'Cards: {self.list_cards}')
+
     def set_hand(self, cards_deck: DeckOfCards):
         """function divide random cards to the player"""
         for i in range(self.numb_cards):

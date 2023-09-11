@@ -26,9 +26,9 @@ class CardGame:
 
     def get_winner(self):
         """This method return the winner who is the player with more cards"""
-        if self.player1.list_cards > self.player2.list_cards:
+        if len(self.player1.list_cards) > len(self.player2.list_cards):
             return self.player1
-        elif self.player1.list_cards < self.player2.list_cards:
+        elif len(self.player1.list_cards) < len(self.player2.list_cards):
             return self.player2
         else:
             return None

@@ -9,9 +9,10 @@ class Card:
         self.value = value
         self.suit = suit
 
-    def __str__(self):
-        return (f'"Value: {self.value}\n'
-                f'Suit: {self.suit}')
+    def __repr__(self):
+        list_values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+        list_suits = ['Diamond', 'Spade', 'Heart', 'Club']
+        return (f'{list_values[self.value - 2]} of {list_suits[self.suit - 1]}')
 
     def __gt__(self, other):
         """Checks if the card higher than other card"""
