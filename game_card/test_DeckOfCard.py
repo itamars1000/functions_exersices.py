@@ -19,7 +19,9 @@ class test_deckOfCards(TestCase):
 
     def test_cards_shuffle(self):
         """Test if the deck is still with 52 cards"""
+        print(self.deck.cards)
         self.deck.cards_shuffle()
+        print(self.deck.cards)
         self.assertEqual(52, len(self.deck.cards))
 
 
