@@ -35,8 +35,6 @@ class test_Card(TestCase):
         self.assertTrue(Card(9, 3) > Card(8, 3))
         # Test case same Value(Ace): Ace of diamond VS Ace of heart
         self.assertTrue(Card(1, 3) > Card(1, 1))
-        # Test case same Value and suit: 8 of diamond VS 8 of diamond
-        #self.assertn(Card(8, 3) > Card(8, 3))
 
     def test_gt_invalid(self):
         """Test case invalid: comparing between Card and NOT Card"""
@@ -45,10 +43,8 @@ class test_Card(TestCase):
 
     def test_eq_valid(self):
         """Test case valid inputs"""
-        # Test same Values: True
-        self.assertTrue(Card(7, 3) == Card(7, 2))
-        # Test same Suits: False
-        self.assertFalse(Card(5, 3) == Card(7, 3))
+        # Test same cards: True
+        self.assertTrue(Card(7, 2) == Card(7, 2))
 
     def test_eq_invalid(self):
         """Test case invalid: comparing between Card and NOT Card"""

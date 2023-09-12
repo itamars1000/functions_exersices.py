@@ -47,11 +47,20 @@ class test_cardGame(TestCase):
             game = CardGame(deck, my_player1, my_player2)
 
 
-    def test_new_game_valid(self):
+    def test_new_game_valid1(self):
         """Check if left in the deck right amount of cards after the division"""
         deck1 = DeckOfCards()
         game1 = CardGame(deck1, Player('aaa', 20), Player('BBB', 20))
         self.assertEqual(12, len(deck1.cards))
+
+    def test_new_game_valid2(self):
+        """Test case that check if the players get the right amount of cards"""
+        deck1 = DeckOfCards()
+        player1 = Player('aaa', 10)
+        player2 = Player('bbb', 10)
+        game1 = CardGame(deck1, player1, player2)
+        self.assertEqual(10, len(player1.list_cards))
+        self.assertEqual(10, len(player2.list_cards))
 
     def test_new_game_invalid(self):
         """Test case that check if the program stops if there is try to start new game"""

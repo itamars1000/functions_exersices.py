@@ -1,5 +1,5 @@
 from Card import Card
-from random import shuffle, randint, choice
+from random import shuffle, choice
 
 # The class DeckOfCards includes data about the cards deck and the following Methods:
 # cards_shuffle
@@ -10,7 +10,7 @@ from random import shuffle, randint, choice
 class DeckOfCards:
     def __init__(self):
         """Make new deck of card with 52 cards"""
-        self.cards = [Card(randint(1, 13), randint(1, 4)) for i in range(52)]
+        self.cards = [Card(i, j) for i in range(1, 14) for j in range(1, 5)]
 
     def __repr__(self):
         return f'Deck of cards: {self.cards}'

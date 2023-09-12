@@ -4,6 +4,7 @@ from DeckOfCard import DeckOfCards
 
 # Divides cards to players
 deck1 = DeckOfCards()
+print(deck1)
 print("New player")
 player1 = Player(input("name:"), 10)
 print("New player")

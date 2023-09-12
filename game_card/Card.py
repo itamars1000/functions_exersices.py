@@ -22,13 +22,11 @@ class Card:
         """Checks if the card higher than other card"""
         if type(other) != Card:
             raise TypeError("Other must be a Card")
-        if self == other:
+        if self.value == other.value:
             if self.suit > other.suit:
                 return True
             elif self.suit < other.suit:
                 return False
-            else:
-                return None
         else:
             if self.value == 1:
                 return True
@@ -45,7 +43,7 @@ class Card:
         """Compares between 2 cards"""
         if type(other) != Card:
             raise TypeError("Other must be a Card")
-        if self.value == other.value:
+        if self.value == other.value and self.suit == other.suit:
             return True
         else:
             return False

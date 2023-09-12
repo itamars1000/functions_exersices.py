@@ -3,6 +3,7 @@ from unittest import TestCase
 from Card import Card
 from random import randint
 
+
 class test_deckOfCards(TestCase):
     def setUp(self):
         pass
@@ -23,7 +24,6 @@ class test_deckOfCards(TestCase):
         self.deck.cards_shuffle()
         print(self.deck.cards)
         self.assertEqual(52, len(self.deck.cards))
-
 
     def test_deal_one(self):
         """Test if one card is down from the deck"""

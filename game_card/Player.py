@@ -13,7 +13,11 @@ class Player:
     def __init__(self, name, numb_cards=26):
         """define the name player and number of cards and the list of cards"""
         self.name = name
+        if type(self.name) != str:
+            raise TypeError("name must be string ")
         self.numb_cards = numb_cards
+        if self.numb_cards < 0:
+            raise ValueError("value must be positive ")
         if self.numb_cards > 26 or self.numb_cards < 10:
             self.numb_cards = 26
         self.list_cards = []
@@ -28,10 +32,13 @@ class Player:
     def set_hand(self, cards_deck: DeckOfCards):
         """function divide random cards to the player"""
         for i in range(self.numb_cards):
-            self.list_cards.append(cards_deck.deal_one())
+            card = cards_deck.deal_one()
+            self.add_card(card)
 
     def get_card(self):
         """choose random card from the list of cards"""
+        if self.list_cards == []:
+            raise Exception("The player finished his cards")
         card = choice(self.list_cards)
         self.list_cards.remove(card)
         return card
