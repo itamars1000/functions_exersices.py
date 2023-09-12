@@ -46,6 +46,13 @@ class test_cardGame(TestCase):
             my_player2 = 'Player'
             game = CardGame(deck, my_player1, my_player2)
 
+    def test_init_invalid4(self):
+        """Test case invalid input: player2 have more cards than player1"""
+        with self.assertRaises(ValueError):
+            deck = DeckOfCards()
+            my_player1 = Player('aaa', 16)
+            my_player2 = Player('bbb', 17)
+            game = CardGame(deck, my_player1, my_player2)
 
     def test_new_game_valid1(self):
         """Check if left in the deck right amount of cards after the division"""
@@ -53,7 +60,15 @@ class test_cardGame(TestCase):
         game1 = CardGame(deck1, Player('aaa', 20), Player('BBB', 20))
         self.assertEqual(12, len(deck1.cards))
 
-    def test_new_game_valid2(self):
+    @mock.patch('Player.Player.set_hand', return_value=[Card(11, 1), Card(1, 1),Card(2, 1),Card(3, 1),Card(4, 1),Card(5, 1),Card(6, 1),Card(7, 1),Card(8, 1),Card(9, 1), ])
+    def test_new_game_valid2(self, mock_hand):
+        """Check if the player gets the right cards"""
+        hand = [Card(11, 1), Card(1, 1),Card(2, 1),Card(3, 1),Card(4, 1),Card(5, 1),Card(6, 1),Card(7, 1),Card(8, 1),Card(9, 1), ]
+        deck1 = DeckOfCards()
+        game1 = CardGame(deck1, Player('aaa', 20), Player('BBB', 20))
+        self.assertEqual(hand, game1.player1.list_cards)
+
+    def test_new_game_valid3(self):
         """Test case that check if the players get the right amount of cards"""
         deck1 = DeckOfCards()
         player1 = Player('aaa', 10)

@@ -18,6 +18,8 @@ class CardGame:
         if type(player2) != Player:
             raise TypeError("player2 must be Player type")
         self.player2 = player2
+        if player1.numb_cards != player2.numb_cards:
+            raise ValueError("The players should have same cards amount")
         self.new_game()
 
     def __str__(self):

@@ -31,6 +31,8 @@ class Player:
 
     def set_hand(self, cards_deck: DeckOfCards):
         """function divide random cards to the player"""
+        if cards_deck == []:
+            raise Exception("No more cards in the deck")
         for i in range(self.numb_cards):
             card = cards_deck.deal_one()
             self.add_card(card)
@@ -46,3 +48,4 @@ class Player:
     def add_card(self, card: Card):
         """function will get a card and will add it to the list of cards"""
         self.list_cards.append(card)
+
